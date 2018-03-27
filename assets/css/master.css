@@ -538,8 +538,8 @@ Mobile enhancements
   }
   body.post > article p,
   body.page > article p {
-    line-height: 70px;
-    font-size: 14px;
+    line-height: 60px;
+    font-size: 18px;
   }
   body.post > article p + *,
   body.page > article p + * {
