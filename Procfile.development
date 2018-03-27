@@ -1,0 +1,2 @@
+stylus: stylus --watch assets/css/src/master.styl --out assets/css
+server: bundle exec jekyll serve --livereload --incremental

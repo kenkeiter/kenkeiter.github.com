@@ -1,0 +1,194 @@
+---
+layout: post
+title: "Redesigning the Credit Card Input"
+date: 2013-07-21 23:41:31
+tags: design
+post_layout:
+    title_class: color-rainbow
+social:
+    title: Redesigning the Credit Card Input
+    description: >-
+        Ken Keiter takes a shot at redesigning the credit card input, and 
+        presents Skeuocard – a new library/paradigm for accepting credit card 
+        information on the web.
+    image: /assets/img/skeuocard/card-lead.png
+    image_alt: A real credit card, and its digital representation.
+---
+<style>
+a.btn-open-skeuocard {
+    display: block;
+    background-image: linear-gradient(-180deg, #FF8E67 0%, #FF73B3 98%);
+    border: 3px solid rgba(0,0,0,0.29);
+    box-shadow: 0 0 10px 5px rgba(255,131,134,0.38);
+    border-radius: 8px;
+    color: #fff !important;
+    text-align: center;
+    font-weight: 600;
+}
+</style>
+<p>
+    <img src="/assets/img/skeuocard/card-lead.png" alt="Image of a physical credit card, and its digital representation." style="height:244px; width: 416px; float: left; margin: 0px 28px 28px -128px; clear: both;">
+    I remember the first time I went through the checkout process online. I 
+    can't remember what I was buying, but I remember the experience. I had just 
+    filled out my billing address, when I was presented with a place to enter 
+    my credit card information: an array of fields with a select box, laid out 
+    in a table with these six-pixel-thick, beveled borders. It had instructions 
+    at the top. Enter your date in this format. Put spaces between each number 
+    grouping. It looked and felt as though it had been constructed by Soviet 
+    scientists during the cold war.
+</p>
+<p>
+    For the most part, with the exception of the beveled borders, this 
+    describes credit card inputs as they exist today.
+</p>
+<p>
+    As designers and engineers, our job is to look at the world and try to 
+    figure out why things are the way they are. The <em>feel</em> of buying 
+    something online is vastly different than the feel of purchasing something 
+    in the real world. The core of a purchasing experience is not only about 
+    getting the right data from the user you're selling to, and shipping them 
+    this product -- it's in the significance of the <em>exchange</em>. I give 
+    you something, and in return, I get something.
+</p>
+<p>
+    Designing a simple, efficient, and enjoyable online purchasing experience 
+    is very much about striving to inspire the same feelings in your user as 
+    those of a person making a purchase in the real world. Every little detail 
+    has to be taken into account, but today I chose to redesign the credit card 
+    input.
+</p>
+<blockquote class="pull">
+    Every question a user has to ask themselves during the checkout process is 
+    another reason for them not to complete it.
+</blockquote>
+<p>
+    And yet, the user has to ask themselves so many to simply hand over the 
+    information necessary to make his or her purchase. In the average credit 
+    card form, it's common to find
+</p>
+<ul>
+    <li>a cluster of randomly-ordered form fields;</li>
+    <li>inconsistent formatting requirements;</li>
+    <li>poor, confusing labeling;</li>
+    <li>complex instructions about how to find things like the CVC (Card 
+        Validation Code) for each different card product.</li>
+</ul>
+<blockquote>
+"Am I supposed to enter my card number with the spaces?"<br>
+"Okay, the month on the card is 7... So that's January, February, March, April, May, June, July..."<br>
+"What's a CCID? Is that the same as a CCV?"<br>
+"What the hell is a CCV?!"<br>
+"There are four digits here instead of three..."<br>
+"Why does it keep saying my card number is too short?"
+</blockquote>
+<p>
+    All things I've heard from users trying to purchase things online.
+</p>
+<p>
+    Surprisingly, most of these problems are addressed by the cards 
+    themselves. You'll notice that no credit card labels its fields -- with the 
+    exception of the Card Validation Code (CVC), it's clear by their position 
+    on the card, and their content.
+</p>
+<p>
+    Moreover, you can pass someone a credit card anywhere in the world, and 
+    they know what they're holding before they even see a Visa logo. There's a 
+    significance embodied in the form; it has become a tool for creating a 
+    transaction -- fork over your card, and in exchange you receive your purchase.
+</p>
+<p>
+    Importing this significance into the online purchasing experience is the 
+    next logical step. Given that the form and layout are significant and can 
+    potentially improve the experience of making a credit card purchase, this 
+    is a perfect application of <em>skeuomorphism</em>.
+</p>
+<p>
+    Those of you paying attention to iOS (and design in general) have probably 
+    heard the word <em>skeuomorphism</em> a lot lately -- and, if you're 
+    anything like most people, have had to pull out the dictionary. For the 
+    uninitiated, <em>skeuomorphism</em> is defined as "a derivative object that 
+    retains ornamental design cues to structures that were necessary in the 
+    original." There's been a backlash against it recently -- probably because 
+    it's so commonly misused. In iOS, it roughly translated into woodgrain 
+    <em>everywhere</em>, lots of realistic-looking knobs and controls and, at 
+    the end of the day, an interface that any user, regardless of their smart-
+    phone savvy, could pick up and figure out in a couple of minutes.
+</p>
+<p>
+    By leveraging skeuomorphism and some clever tricks and code, I believe we 
+    can bring that same intuition to credit card entry, and enhance the user's 
+    perception of the quality of the transaction.
+</p>
+<p>
+    So now the challenge becomes centered around how we can duplicate the 
+    interface <em>of</em> and interaction <em>with</em> a credit card in the 
+    browser. So I did some research.
+</p>
+<p>
+    The layout of cards, including the positioning of the logo, formatting of 
+    names and numbers, etc. is controlled by the companies providing the 
+    payment product. Big, stable companies like Visa and Mastercard, who don't 
+    change layouts very often. The first six digits of a card provide the 
+    card's <em>BIN</em> (Bank Identification Number) -- and not only are they 
+    indicative of the type of payment product; they also indicate the issuer, 
+    as well. For example: card numbers beginning in 4809** are Capital One 
+    Visa Platinum Check Cards; cards beginning in 4913** are Visa Electron 
+    cards. There's even a <a href="http://en.wikipedia.org/wiki/List_of_Issuer_Identification_Numbers" target="_blank">nice list</a> 
+    available on Wikipedia.
+</p>
+<p>
+    We can't <em>exactly</em> duplicate every card out there. There are too 
+    many background images, logos, etc. We need to extract the essence of the 
+    layout, so that the card on screen retains enough visual similarity to the 
+    physical card that the user will recognize it.
+</p>
+<figure>
+    <img src="/assets/img/skeuocard/card-similarities.png" style="max-width: 810px; max-height: 739px;">
+</figure>
+<p>
+    As we're never forced to actually enter information on our credit cards, we 
+    have to construct an interaction around that process; however, if we add a 
+    touch of skeuomorphism to the interaction -- the flip of the card -- we end 
+    up with an interaction that both delights the user, and is informative of 
+    the next step:
+</p>
+<figure>
+    <img src="/assets/img/skeuocard/user-flow.png" style="max-width: 828px; max-height: 1668px;">
+</figure>
+<p>
+But the real weight of this design is in the details of the inputs themselves. 
+When a user enters their card number, the layout of the card is changed, as are 
+the formatting requirements of the inputs. Not only does that change need to be 
+smooth, it needs to be forgiving. 
+</p>
+
+<p>
+    Users should be able to enter their card information correctly even if they 
+    aren't paying attention. The challenge of this starts revealing itself when 
+    you go to use it: if a user enters a space between card number groups while 
+    they're looking at their card number, we need to catch and remove that. If 
+    they continue entering their number past the length of the end of a group, 
+    we need to move them to the next group.
+</p>
+<p>
+    But, in order to leverage skeuomorphism properly, the implementation has to 
+    shift focus from the accuracy of single inputs to the accuracy of the card 
+    as a whole. We want people to hold up their credit card and compare it 
+    directly with the card on their screen. The question they should be asking 
+    themselves is "does it look the same?"
+</p>
+<blockquote>
+The user can compare their card directly with the resulting output on screen, 
+fewer input errors are made, and less time is spent reading the form.
+</blockquote>
+<p>
+So I built a plugin that, with a little work, progressively enhances most 
+existing credit card forms. I call it Skeuocard, and I hope you enjoy it.
+</p>
+<p>
+    <a href="http://kenkeiter.com/skeuocard/" class="btn-open-skeuocard">Try Skeuocard</a>
+</p>
+<p>
+    This blog post was recently featured on Fast Company Labs:<br>
+    <a href="https://www.fastcompany.com/3015256/adding-this-kind-of-skeumorphism-to-your-app-could-make-more-money" target="_blank">Adding This Kind of Skeuomorphism To Your App Could Make You More Money.</a>
+</p>

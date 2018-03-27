@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+     {% include head.html %}
+</head>
+
+<body class="post">
+    {% include header.html %}
+    <article>
+        <h1 class="{{ page.post_layout.title_class }}">{{ page.title }}</h1>
+         {{ page.content }}
+    </article>
+    {% include footer.html %}
+</body>
+
+</html>

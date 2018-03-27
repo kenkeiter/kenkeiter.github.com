@@ -1,0 +1,67 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Ken Keiter</title>
+<meta name="Description" content="I work from concept through engineering to create high-quality products and platforms from ideas.">
+<link rel="shortcut icon" href="favicon.ico">
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" media="all" href="/assets/css/master.css">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Ken Keiter" />
+<meta property="og:url" content="{{ page.url | absolute_url }}" />
+{% if page.social.title -%}
+    <meta property="og:title" content="Ken Keiter: {{ page.social.title }}" />
+{% elsif page.title -%}
+    <meta property="og:title" content="Ken Keiter: {{ page.title }}" />
+{% else -%}
+    <meta property="og:title" content="Ken Keiter" />
+{% endif -%}
+{% if page.social.description -%}
+    <meta property="og:description" content="{{ page.social.description }}" />
+{% elsif page.excerpt -%}
+    <meta property="og:description" content="{{ page.excerpt | truncate 200 }}" />
+{% else -%}
+    <meta property="og:description" content="I work from concept through engineering to create high-quality products and platforms from ideas." />
+{% endif -%}
+{% if page.social.image -%}
+    <meta property="og:image" content="{{ page.social.image | absolute_url }}"/>
+{% endif -%}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site:id" content="@kenkeiter" />
+<meta name="twitter:creator" content="@kenkeiter" />
+<meta name="twitter:domain" content="kenkeiter.com" />
+{% if page.social.title -%}
+    <meta name="twitter:title" content="Ken Keiter: {{ page.social.title }}" />
+{% elsif page.title -%}
+    <meta name="twitter:title" content="Ken Keiter: {{ page.title }}" />
+{% else -%}
+    <meta name="twitter:title" content="Ken Keiter" />
+{% endif -%}
+{% if page.social.description -%}
+    <meta name="twitter:description" content="{{ page.social.description }}">
+{% elsif page.excerpt -%}
+    <meta name="twitter:description" content="{{ page.excerpt | truncate 200 }}">
+{% else -%}
+    <meta name="twitter:description" content="I work from concept through engineering to create high-quality products and platforms from ideas.">
+{% endif -%}
+{% if page.social.image -%}
+    <meta name="twitter:image" content="{{ page.social.image | absolute_url }}"/>
+    {% if page.social.image_alt -%}
+        <meta name="twitter:image:alt" content="ken keiter's userpic" />
+    {% endif -%}
+{% endif -%}
+<meta name="twitter:url" content="{{ page.url | absolute_url }}" />
+
+
+<!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-17099432-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-17099432-1');
+</script>

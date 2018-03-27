@@ -1,0 +1,548 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro-Regular.woff2") format('woff2'), url("../fonts/SourceSansPro-Regular.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro-LightIt.woff2") format('woff2'), url("../fonts/SourceSansPro-LightIt.woff") format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro-SemiboldIt.woff2") format('woff2'), url("../fonts/SourceSansPro-SemiboldIt.woff") format('woff');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url("../fonts/MyriadPro-Light.woff2") format('woff2'), url("../fonts/MyriadPro-Light.woff") format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url("../fonts/MyriadPro-Regular.woff2") format('woff2'), url("../fonts/MyriadPro-Regular.woff") format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro-Semibold.woff2") format('woff2'), url("../fonts/SourceSansPro-Semibold.woff") format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro-Light.woff2") format('woff2'), url("../fonts/SourceSansPro-Light.woff") format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Sans Pro';
+  src: url("../fonts/SourceSansPro-It.woff2") format('woff2'), url("../fonts/SourceSansPro-It.woff") format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Myriad Pro';
+  src: url("MyriadPro-Semibold.woff2") format('woff2'), url("MyriadPro-Semibold.woff") format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+body,
+html {
+  min-height: 100%;
+  min-width: 100%;
+  font-family: "Source Sans Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  color: #acadba;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background-color: #1a1c22;
+}
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+body.post,
+body.page {
+  background-image: linear-gradient(170deg, #2d2f39 0%, #1a1c22 60%);
+}
+body.post a,
+body.page a {
+  color: inherit;
+  transition: color 200ms ease-in-out;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #515567;
+}
+body.post a:hover,
+body.page a:hover {
+  color: #fff;
+  transition: color 200ms ease-in-out;
+}
+body.post *::selection,
+body.page *::selection {
+  background-color: #2d2f39;
+  color: #fff;
+}
+body.post *::-moz-selection,
+body.page *::-moz-selection {
+  background-color: #000;
+}
+body.post header,
+body.page header {
+  margin: 0 auto;
+  padding: 36px;
+  max-width: 780px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+body.post header h2,
+body.page header h2 {
+  font-family: "Myriad Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  font-size: 29px;
+  color: #8b8e9d;
+}
+body.post header h2 a,
+body.page header h2 a {
+  border: 0px;
+}
+body.post header nav ol > li,
+body.page header nav ol > li {
+  display: inline;
+  font-family: "Myriad Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  font-size: 16px;
+  letter-spacing: -0.25px;
+}
+body.post header nav ol > li + li,
+body.page header nav ol > li + li {
+  margin-left: 20px;
+}
+body.post > article,
+body.page > article,
+body.post > section,
+body.page > section {
+  width: 100%;
+  margin-top: 17vh;
+}
+body.post > article > *,
+body.page > article > *,
+body.post > section > *,
+body.page > section > * {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 36px;
+}
+body.post > article > * + *,
+body.page > article > * + *,
+body.post > section > * + *,
+body.page > section > * + * {
+  margin-top: 30px;
+}
+body.post > article > * + h2,
+body.page > article > * + h2,
+body.post > section > * + h2,
+body.page > section > * + h2,
+body.post > article h3,
+body.page > article h3,
+body.post > section h3,
+body.page > section h3,
+body.post > article h4,
+body.page > article h4,
+body.post > section h4,
+body.page > section h4,
+body.post > article h5,
+body.page > article h5,
+body.post > section h5,
+body.page > section h5,
+body.post > article h6,
+body.page > article h6,
+body.post > section h6,
+body.page > section h6 {
+  margin-top: 46px;
+}
+body.post > article h1,
+body.page > article h1,
+body.post > section h1,
+body.page > section h1 {
+  font-family: "Myriad Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  font-size: 35px;
+  line-height: 46px;
+  color: #fff;
+  margin-bottom: 56px;
+}
+body.post > article h1.color-orange,
+body.page > article h1.color-orange,
+body.post > section h1.color-orange,
+body.page > section h1.color-orange {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(135deg, #ff8e67 0%, #ff73b3 30%);
+}
+body.post > article h1.color-purple,
+body.page > article h1.color-purple,
+body.post > section h1.color-purple,
+body.page > section h1.color-purple {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(134deg, #c86dd7 0%, #3023ae 100%);
+}
+body.post > article h1.color-rainbow,
+body.page > article h1.color-rainbow,
+body.post > section h1.color-rainbow,
+body.page > section h1.color-rainbow {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #f1357c 0%, #eb56ff 25%, #7d7cff 50%, #4f7be5 73%, #37bede 100%);
+}
+body.post > article h2,
+body.page > article h2,
+body.post > section h2,
+body.page > section h2 {
+  font-size: 27px;
+  color: #fff;
+  font-weight: 300;
+}
+body.post > article p,
+body.page > article p,
+body.post > section p,
+body.page > section p {
+  font-family: "Source Sans Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  font-size: 16px;
+  letter-spacing: -0.38px;
+  line-height: 35px;
+}
+body.post > article blockquote,
+body.page > article blockquote,
+body.post > section blockquote,
+body.page > section blockquote {
+  font-size: 24px;
+  line-height: 38px;
+  position: relative;
+  color: #fff;
+  margin: 48px auto 48px auto;
+}
+body.post > article em,
+body.page > article em,
+body.post > section em,
+body.page > section em {
+  font-style: italic;
+}
+body.post > article strong,
+body.page > article strong,
+body.post > section strong,
+body.page > section strong {
+  font-weight: 600;
+}
+body.post > article ul li,
+body.page > article ul li,
+body.post > section ul li,
+body.page > section ul li {
+  list-style-type: square;
+  list-style-position: inside;
+  line-height: 28px;
+}
+body.post > article ul li + li,
+body.page > article ul li + li,
+body.post > section ul li + li,
+body.page > section ul li + li {
+  margin-top: 8px;
+}
+body.post > article figure,
+body.page > article figure,
+body.post > section figure,
+body.page > section figure {
+  display: block;
+  padding: 0;
+  margin: 48px 0;
+  width: 100%;
+  max-width: 100%;
+}
+body.post > article figure img,
+body.page > article figure img,
+body.post > section figure img,
+body.page > section figure img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+body.post footer > span,
+body.page footer > span {
+  font-size: 10px;
+  color: #414655;
+  margin: 120px 10px 10px 10px;
+}
+body#landing {
+  background-color: #1a1c22;
+}
+body#landing a {
+  color: inherit;
+  transition: color 200ms ease-in-out;
+  text-decoration: none;
+  padding-bottom: 3px;
+  border-bottom: 1px solid #515567;
+}
+body#landing a:hover {
+  color: #fff;
+  transition: color 200ms ease-in-out;
+}
+body#landing *::selection {
+  background-color: #2d2f39;
+}
+body#landing *::-moz-selection {
+  background-color: #000;
+}
+body#landing header {
+  background-image: linear-gradient(170deg, #2d2f39 0%, #1a1c22 60%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  overflow: hidden;
+  min-height: 700px;
+}
+body#landing header > * {
+  padding: 40px;
+}
+body#landing header div.about {
+  flex-shrink: 0;
+  order: 0;
+}
+body#landing header div.about > * + * {
+  margin-top: 13px;
+}
+body#landing header div.about h1 {
+  font-family: "Myriad Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  font-size: 35px;
+  color: #ff8e67;
+  background-image: linear-gradient(135deg, #ff8e67 0%, #ff73b3 30%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body#landing header div.about p.tagline {
+  font-family: "Myriad Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: -0.53;
+  line-height: 33px;
+  color: #fff;
+}
+body#landing header div.about ul.skill-set {
+  font-family: "Myriad Pro", Helvetica, 'Segoe UI', Arial, Verdana;
+}
+body#landing header div.about ul.skill-set li {
+  opacity: 0.6;
+  display: inline;
+  text-transform: lowercase;
+  margin: 0;
+  padding: 0;
+}
+body#landing header div.about ul.skill-set li + li::before {
+  content: "/";
+  margin-right: 4px;
+  margin-left: 4px;
+}
+body#landing header div.profile-photo {
+  flex-shrink: 1;
+  min-width: 130px;
+  order: 1;
+}
+body#landing header div.profile-photo img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  mix-blend-mode: lighten;
+  max-height: 463px;
+  max-width: 100%;
+}
+body#landing section#articles {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+}
+body#landing section#articles ol.articles-list > li {
+  display: flex;
+  justify-content: space-between;
+}
+body#landing section#articles ol.articles-list > li span {
+  color: #626375;
+}
+body#landing section#articles ol.articles-list > li + li {
+  margin-top: 20px;
+}
+body#landing footer > span {
+  position: absolute;
+  bottom: 0px;
+  font-size: 10px;
+  color: #414655;
+  margin: 10px;
+}
+/*
+Mobile enhancements
+*/
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px) {
+  body#landing header {
+    flex-direction: column;
+  }
+  body#landing header div.about {
+    order: 1;
+  }
+  body#landing header div.profile-photo {
+    order: 0;
+  }
+  body#landing header div.profile-photo img {
+    max-height: 600px;
+  }
+  body.post header h2,
+  body.page header h2 {
+    font-size: 47px;
+  }
+  body.post header nav > ol > li,
+  body.page header nav > ol > li {
+    font-size: 34px;
+  }
+  body.post > article h1,
+  body.page > article h1 {
+    font-size: 65px;
+    line-height: 80px;
+  }
+  body.post > article p,
+  body.page > article p {
+    line-height: 70px;
+    font-size: 14px;
+  }
+  body.post > article p + *,
+  body.page > article p + * {
+    margin-top: 70px;
+  }
+}
