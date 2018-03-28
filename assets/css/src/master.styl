@@ -301,6 +301,45 @@ body#landing {
     }
 }
 
+body#about {
+    h1 {
+        font-size: 35px;
+        color: #4B4E60;
+        line-height: 48px;
+        span { color: #fff; }
+    }
+
+    svg#knowledge-tree {
+        width: 100%;
+        height: 800px;
+        margin: 0 auto;
+
+        .node circle {
+            fill: #2D2F39;
+            stroke: lighten(#2D2F39, 10%);
+            stroke-width: 1.5px;
+
+            &.parent {
+                cursor: pointer;
+                fill: #2D2F39;
+            }
+        }
+
+        .node text {
+            font-size: 11px;
+            color: $color-text-default;
+            color: #fff;
+            fill: #fff;
+        }
+
+        path.link {
+            fill: none;
+            stroke: lighten(#2D2F39, 10%);
+            stroke-width: 1px;
+        }
+    }
+}
+
 /*
 Mobile enhancements
 */

@@ -507,6 +507,39 @@ body#landing footer > span {
   color: #414655;
   margin: 10px;
 }
+body#about h1 {
+  font-size: 35px;
+  color: #4b4e60;
+  line-height: 48px;
+}
+body#about h1 span {
+  color: #fff;
+}
+body#about svg#knowledge-tree {
+  width: 100%;
+  height: 800px;
+  margin: 0 auto;
+}
+body#about svg#knowledge-tree .node circle {
+  fill: #2d2f39;
+  stroke: #3f4250;
+  stroke-width: 1.5px;
+}
+body#about svg#knowledge-tree .node circle.parent {
+  cursor: pointer;
+  fill: #2d2f39;
+}
+body#about svg#knowledge-tree .node text {
+  font-size: 11px;
+  color: #acadba;
+  color: #fff;
+  fill: #fff;
+}
+body#about svg#knowledge-tree path.link {
+  fill: none;
+  stroke: #3f4250;
+  stroke-width: 1px;
+}
 /*
 Mobile enhancements
 */
